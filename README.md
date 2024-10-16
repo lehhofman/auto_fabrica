@@ -16,7 +16,7 @@ Este projeto é um sistema de um pátio de automóveis.
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/lehhofman/auto_fabrica.git
+   https://github.com/lehhofman/auto_fabrica.git
    ```
 2. Abra com o visual e Entre no repositório:
 
