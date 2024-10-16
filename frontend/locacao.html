@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: #00d689;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            position: relative;
+            background: linear-gradient(135deg, #00d689, #0084b9);
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .areas {
+            position: absolute;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            border-radius: 5px;
+        }
+
+        .ativa {
+            background-color: #00f;
+            cursor: pointer;
+            color: #FFF;
+        }
+
+        #d1 { width: 10vw; height: 20vh; top: 50vh; left: 20vw; }
+        #d2 { width: 5vw; height: 16vh; top: 58vh; left: 34vw; }
+        #d3 { width: 15vw; height: 40vh; top: 55vh; left: 21vw; }
+        #d4 { width: 7vw; height: 7vh; top: 49vh; left: 26vw; }
+        #d5 { width: 25vw; height: 45vh; top: 50vh; left: 32vw; }
+        #d6 { width: 7vw; height: 10vh; top: 5vh; left: 70vw; }
+        #d7 { width: 7vw; height: 7vh; top: 43vh; left: 33vw; }
+        #d8 { width: 7vw; height: 7vh; top: 27vh; left: 28vw; }
+        #d9 { width: 10vw; height: 10vh; top: 25vh; left: 35vw; }
+        #d10 { width: 30vw; height: 80vh; top: 5vh; left: 47vw; }
+        #d11 { width: 5vw; height: 10vh; top: 14vh; left: 30vw; }
+
+        .modais {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100vw;
+            height: 100vh;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+        }
+
+        .modal1 {
+            position: relative;
+            width: 40vw;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #00d689, #0084b9);
+            border: 1px solid  #0084b9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .barra {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            width: 100%;
+            background-color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .barra button {
+            border: none;
+            background: none;
+            padding: 10px;
+            color: #00d689;
+            font-weight: bold;
+            margin-right: 30px;
+        }
+
+        .titulo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            font-size: larger;
+            margin-left: 44%;
+            font-weight: bold;
+        }
+
+        .conteudo {
+            position: relative;
+            width: 100%;
+            max-height: 60%;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .forms{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .campo{
+            display: flex;
+            margin-left: 30px;
+            gap: 20px;
+        }
+
+        .conteudo button {
+            padding: 7px 6px;
+            margin: 10px;
+            border: none;
+            background-color: #00d689;
+            color: #FFF;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: larger;
+            cursor: pointer;
+        }
+
+        .automovel {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .automovel img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .oculto {
+            display: none;
+        }
+    </style>
+    <title>fabrica carros</title>
+</head>
+
+<body>
+    <main>
+        <div class="areas" id="d5" onclick="alert('Área vazia')">5</div>
+        <div class="areas" id="d3" onclick="alert('Área vazia')">3</div>
+        <div class="areas" id="d10" onclick="alert('Área vazia')">10</div>
+        <div class="areas" id="d1" onclick="alert('Área vazia')">1</div>
+        <div class="areas" id="d2" onclick="alert('Área vazia')">2</div>
+        <div class="areas" id="d4" onclick="alert('Área vazia')">4</div>
+        <div class="areas" id="d6" onclick="alert('Área vazia')">6</div>
+        <div class="areas" id="d7" onclick="alert('Área vazia')">7</div>
+        <div class="areas" id="d8" onclick="alert('Área vazia')">8</div>
+        <div class="areas" id="d9" onclick="alert('Área vazia')">9</div>
+        <div class="areas" id="d11" onclick="alert('Área vazia')">11</div>
+    </main>
+    <footer>
+        <div class="menu-concessionaria">
+        </div>
+        <div id="area" class="modais oculto">
+            <div class="modal1">
+                <div class="barra">
+                    <div id="areaTitulo" class="titulo"></div>
+                    <button onclick="area.classList.add('oculto')">X</button>
+                    
+                </div>
+                <div id="areaTitulo" class="titulo">
+                </div>
+                <div id="areaConteudo" class="conteudo">
+                </div>
+            </div>
+        </div>
+        <div id="venda" class="modais oculto">
+            <div class="modal1">
+                <div class="barra">
+                    <div id="vendaTitulo" class="titulo"></div>
+                    <button onclick="document.getElementById('venda').classList.add('oculto')">X</button>
+                </div>
+                <div id="vendaTitulo" class="titulo"></div>
+                <div id="vendaConteudo" class="conteudo">
+                    <form id="formVenda" class="forms">
+                        <div id="campos" class="campo"></div>
+                        <button id="concluir" type="submit" disabled>Confirmar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    const options = { method: 'GET' };
+    var areasAtivas = [];
+    var clientes = [];
+
+    fetch('http://localhost:3000/alocacao/area', options)
+        .then(response => response.json())
+        .then(response => {
+            areasAtivas = response;
+            pintarAreas();
+        })
+        .catch(err => console.error(err));
+
+    const pintarAreas = () => {
+        console.table(areasAtivas);
+        areasAtivas.forEach(a => {
+            const div = document.getElementById(`d${a.area}`);
+            div.classList.add('ativa');
+            div.setAttribute('onclick', `abrirModalArea(${a.area})`);
+        });
+    }
+
+    const abrirModalArea = (area) => {
+        const modal = document.getElementById('area');
+        const titulo = document.getElementById('areaTitulo');
+        const conteudo = document.getElementById('areaConteudo');
+        modal.classList.remove('oculto');
+        titulo.innerHTML = "Área " + area;
+        conteudo.innerHTML = "";
+
+        const options = { method: 'GET' };
+
+        fetch(`http://localhost:3000/automovel/${area}`, options)
+            .then(response => response.json())
+            .then(response => {
+                response.forEach(a => {
+                    const div = document.createElement('div');
+                    div.classList.add('automovel');
+                    div.setAttribute('data-id', a.id); 
+                    div.innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px;">
+                        <img src="./img/images.jfif" alt="${a.modelo}" style="width: 60px; height: auto; margin-right: 10px;">
+                        <div style="color: #FFF;font-weight: bold;">
+                            <strong style="color: #FFF;font-weight: bold;">Modelo:</strong> ${a.modelo}<br>
+                            <strong style="color: #FFF;font-weight: bold;">Preço:</strong> R$${a.preco.toFixed(2)}
+                        </div>
+                        <button onclick="abrirModalVenda(${a.alocacoes[0].id},'${a.modelo}',${a.id}, ${area})" style="background-color: #00d689; color: white; border: none; border-radius: 5px; padding: 5px 10px; cursor: pointer;">Vender</button>
+                    </div>`;
+                    conteudo.appendChild(div);
+                });
+            })
+            .catch(err => console.error(err));
+    }
+
+    const abrirModalVenda = async (idAlocacao, modelo, idAutomovel, area) => {
+        const modal = document.getElementById('venda');
+        const titulo = document.getElementById('vendaTitulo');
+        const conteudo = document.getElementById('campos');
+        titulo.innerHTML = modelo;
+        modal.classList.remove('oculto');
+        conteudo.innerHTML = `<input type="hidden" id="alocacaoId" value="${idAlocacao}">`;
+        conteudo.innerHTML += `<div>Cliente: <select onchange="habilitarBotaoConcluir()" id="clienteId">${await listarClientes()}</select></div>`;
+        conteudo.innerHTML += `<div>Concessionaria: <select onchange="habilitarBotaoConcluir()" id="concessionariaId">${await listarConcessionaria(idAutomovel)}</select></div>`;
+
+        const form = document.getElementById('formVenda');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const dados = {
+                clienteId: parseInt(document.getElementById('clienteId').value),
+                alocacaoId: parseInt(document.getElementById('alocacaoId').value),
+                concessionariaId: parseInt(document.getElementById('concessionariaId').value)
+            };
+
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dados)
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/vendas', options);
+                if (response.status === 201) {
+                    alert('Venda realizada com sucesso!');
+                    document.location.reload();  // Atualiza a página para refletir as mudanças
+                } else {
+                    alert('Erro ao realizar a venda.');
+                }
+            } catch (err) {
+                console.error(err);
+            }
+
+            // Remove o automóvel da tela
+            const automovelDiv = document.querySelector(`.automovel[data-id="${idAutomovel}"]`);
+            if (automovelDiv) {
+                automovelDiv.remove();  
+            }
+            const areaConteudo = document.getElementById('areaConteudo');
+            // Verifica se a área está vazia
+            if (areaConteudo.children.length === 0) {
+                const areaDiv = document.getElementById(`d${area}`);
+                areaDiv.innerHTML = "Área vazia";  
+                areaDiv.classList.remove('ativa');  
+            }
+        });
+    };
+
+    const listarClientes = async () => {
+        let optionsClientes = "<option></option>";
+        const options = { method: 'GET' };
+        await fetch('http://localhost:3000/cliente', options)
+            .then(response => response.json())
+            .then(response => { response.forEach(c => optionsClientes += `<option value="${c.id}">${c.nome}</option>`) })
+            .catch(err => console.error(err));
+        return optionsClientes;
+    }
+
+    const listarConcessionaria = async (veiculo) => {
+        let optionsConcessionarias = "<option></option>";
+        const options = { method: 'GET' };
+        await fetch('http://localhost:3000/concessionarias/' + veiculo, options)
+            .then(response => response.json())
+            .then(response => { response.forEach(c => optionsConcessionarias += `<option value="${c.id}">${c.nome}</option>`) })
+            .catch(err => console.error(err));
+        return optionsConcessionarias;
+    }
+
+    const habilitarBotaoConcluir = () => {
+        let cli = document.getElementById('clienteId').value;
+        let concessionaria = document.getElementById('concessionariaId').value;
+        if (cli != "" && concessionaria != "") {
+            const botao = document.getElementById('concluir');
+            botao.removeAttribute('disabled');
+        }
+    }
+</script>
+
+</html>
