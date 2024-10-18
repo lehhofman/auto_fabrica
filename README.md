@@ -58,7 +58,7 @@ node server.js
 8. Abra o sistema:
 
 ```bash
-Abra o arquivo index.html pelo LiveServer.
+Abra o arquivo locacao.html pelo LiveServer.
 ```
 
 
